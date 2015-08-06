@@ -190,7 +190,7 @@ class Md5Sign {
 class HTTPRequest{
 
     public static function postUrl($url, $params = array(), $timeout = 30){
-        Log::record("post url: $url");
+//        Log::record("post url: $url");
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         // 设置header
@@ -202,7 +202,7 @@ class HTTPRequest{
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         // 运行cURL，请求网页
         $data = curl_exec($curl);
-        Log::record("post result:".$data);
+//        Log::record("post result:".$data);
         return $data;
     }
 
@@ -212,12 +212,12 @@ class HTTPRequest{
     }
 
     public static function get($url, $timeout = 30){
-        Log::record("get url: $url");
+//        Log::record("get url: $url");
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $resposne = curl_exec($ch);
-        Log::record("get result:".$resposne);
+//        Log::record("get result:".$resposne);
         return $resposne;
     }
 
