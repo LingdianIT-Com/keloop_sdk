@@ -67,6 +67,7 @@ class KeloopSdk {
     
     /**
      *  向绑定的配送站发送订单
+     *  详情请参见 http://api.keloop.com/swagger-ui/dist/index.html#!/Order/send
      * @param type $para
      * @return boolean
      */
@@ -80,6 +81,12 @@ class KeloopSdk {
         }
     }
     
+    /**
+     *  查询订单处理状态
+     *  http://api.keloop.com/swagger-ui/dist/index.html#!/Order/query
+     * @param type $para
+     * @return boolean
+     */
     public function query($para){
         $path = "/order/query";
         $result = $this->getUrl($path, $para);
@@ -90,10 +97,21 @@ class KeloopSdk {
         }
     }
     
+    /**
+     * 查询订单处理详情
+     * http://api.keloop.com/swagger-ui/dist/index.html#!/Order/queryDetail
+     * @param type $para
+     */
     public function queryDetail($para){
         
     }
     
+    /**
+     * 撤销未配送的订单
+     * @param type $para
+     *  http://api.keloop.com/swagger-ui/dist/index.html#!/Order/cancel
+     * @return boolean
+     */
     public function cancel($para){
         $path = "/order/cancel";
         $result = $this->getUrl($path,$para);
